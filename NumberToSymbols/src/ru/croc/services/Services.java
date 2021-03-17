@@ -153,6 +153,7 @@ public class Services {
             res = copy_number == number ? "" : " "  + numberToSymbol(number % 10, number % 10)  + res;
             number /= 10;
         }
+        res += numberToSymbol(copy_number % 10, copy_number % 10);
         return res;
     }
 }
