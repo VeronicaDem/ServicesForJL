@@ -98,7 +98,10 @@ public class Services {
                return getString(res, copyNumber, number_copy, "миллион") + numberToSymbol((long) (number % 1e6), number_copy);
 
            }
-           if (number >= 1e9 && number < 2e9) {
+           if(number >= 1e9) {
+               return getStringByOneNumber("", number, number);
+           }
+          /* if (number >= 1e9 && number < 2e9) {
                return "миллиард " + numberToSymbol((long) (number % 1e7), number_copy);
            }
            if (number >= 2e9 && number < 1e12) {
@@ -121,7 +124,7 @@ public class Services {
            if (number >= 2e15 && number < 1e18) {
                copyNumber = (long) (number / 1e15);
                return getString(res, copyNumber, number_copy, "квадриллион") + numberToSymbol((long) (number % 1e15), number_copy);
-           }
+           }*/
        }
 
        return res;
@@ -142,6 +145,13 @@ public class Services {
             res +=numberToSymbol(number, copy_number);
             number /= 10;
 
+        }
+        return res;
+    }
+    private static String getStringByOneNumber(String res, long number, long copy_number) {
+        while (number != 0) {
+            res = copy_number == number ? "" : " "  + numberToSymbol(number % 10, number % 10)  + res;
+            number /= 10;
         }
         return res;
     }
