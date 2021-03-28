@@ -186,6 +186,8 @@ public class Graph {
 
     /**
      * Обход графа и поиск по шаблонам
+     * TODO
+     * Сделать возможность возврата в предыдущий узел, если пошли не по тому пути
      */
     public String searchAndExec(String string) {
 
@@ -201,6 +203,7 @@ public class Graph {
             replaceNeed = false;
             // Поиск нужного начала шаблона
             Node<Atom> node = start;
+            newString = "";
             String text = string.substring(k);
             while (node != null) {
                 if (used.get(node.name) == null) {
