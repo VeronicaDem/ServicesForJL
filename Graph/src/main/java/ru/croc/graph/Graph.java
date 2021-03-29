@@ -186,13 +186,12 @@ public class Graph {
 
     /**
      * Обход графа и поиск по шаблонам
-     * TODO
-     * Сделать возможность возврата в предыдущий узел, если пошли не по тому пути
      */
     public String searchAndExec(String string) {
 
         Map<String, Boolean> used = new HashMap<>();
         int k = 0;
+        int kString = 0;
         Node<Atom> start = this.emptyWordVertex;
         int i = 0;
         boolean replaceNeed = false;
@@ -218,6 +217,7 @@ public class Graph {
                             k = matcher.end();
                             if (node.data.hasAction) {
                                 // Action
+
                                newString+= node.data.action.exec(text.substring(0, k));
 
                             }
@@ -225,6 +225,7 @@ public class Graph {
                                 newString += text.substring(0, k);
 
                             }
+                            kString += k;
                             replaceNeed = true;
                         }
                     } else {
@@ -240,6 +241,7 @@ public class Graph {
                             }
 
                             replaceNeed = true;
+                            kString += k;
                         }
 
                     }
@@ -254,8 +256,12 @@ public class Graph {
 
                 }
                 if(i >= start.getChildList().size()) {
-
-                    return newString;
+                    if(kString >= string.length()) return newString;
+                    else {
+                        start = node;
+                        i = 0;
+                        kString = 0;
+                    }
                 }
                 else  {
                         node = start.getChildList().get(i);
