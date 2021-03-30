@@ -1,11 +1,10 @@
 package ru.croc.java;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.croc.graph.Atom;
-import ru.croc.graph.DateNode;
-import ru.croc.graph.Graph;
-import ru.croc.graph.Node;
+import ru.croc.graph.Graph.*;
+
 
 /**
  * Тест для графов
@@ -114,12 +113,18 @@ public class GraphTest {
 
       emptyGraph.addVertex(DateNode.day, "v3", false);
       emptyGraph.addVertex(new Atom("-", "-", false), "v4", false);
-      emptyGraph.addEdge("v1", "v4");;
+      emptyGraph.addEdge("v1", "v4");
       emptyGraph.addEdge("v4", "v2");
       emptyGraph.addVertex(new Atom("-", "-", false), "v5", false);
       emptyGraph.addEdge("v2", "v5");
       emptyGraph.addEdge("v5", "v3");
 
       Assertions.assertEquals("2021-Март-28", emptyGraph.searchAndExec("2021-03-28"));
+    /*  Node<Atom> monthReplace2 = new Node<Atom> (new Atom(
+              "MM", DateNode.month.pattern, (s)-> {
+              return s.substring(s.length() - 1);
+      }
+      ));
+*/
    }
 }
