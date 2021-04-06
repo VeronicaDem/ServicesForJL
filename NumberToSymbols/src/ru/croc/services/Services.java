@@ -3,6 +3,22 @@ package ru.croc.services;
 import ru.croc.services.numberService.WorkWithNumbers;
 
 public class Services {
+    public static String resolveZeroes(String number) {
+        String res = "";
+        boolean flag = false;
+        if (number.startsWith("0")) {
+            flag = true;
+            for(int i = 0; i < number.length() - 1; i++) {
+                if (number.charAt(i) == '0') {
+                    res += "ноль ";
+                }
+            }
+        }
+        if(flag) {
+            return res + numberToSymbol(Long.parseLong(number) / 10, Long.parseLong(number) / 10);
+        }
+        else return numberToSymbol(Long.parseLong(number), Long.parseLong(number));
+    }
     public static String numberToSymbol(long number, long number_copy) {
        String res = "";
        long copyNumber;

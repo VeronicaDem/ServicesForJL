@@ -7,7 +7,7 @@ public class WorkWithNumbers {
     };
     // > 10 < 20
     public static final String nadsat[] = {
-            "один", "две", "три", "четыр", "пять", "шест", "сем", "восемь", "девять"
+            "один", "две", "три", "четыр", "пят", "шест", "сем", "восем", "девят"
     };
     // >= 20 <40
     public static final String dsat[] = {

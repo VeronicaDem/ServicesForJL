@@ -3,10 +3,11 @@ package ru.croc.sevices;
 public class MyPattern {
     private String pattern;
     private int order;
-
-    public MyPattern(String pattern, int order) {
+    public Action action;
+    public MyPattern(String pattern, int order, Action action) {
         this.pattern = pattern;
         this.order = order;
+        this.action = action;
     }
 
     public String getPattern() {
