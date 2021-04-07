@@ -1,4 +1,4 @@
-package ru.croc.sevices;
+package ru.croc.services.dataservice;
 
 public class MyPattern {
     private String pattern;
