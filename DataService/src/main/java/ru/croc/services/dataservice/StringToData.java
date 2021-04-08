@@ -753,10 +753,11 @@ public class StringToData {
 
            while (itr.hasNext()) {
                MyPattern myPattern = (MyPattern) itr.next();
-               Pattern pattern = Pattern.compile(myPattern.getPattern());
+               Pattern pattern = Pattern.compile("\\b" + myPattern.getPattern());
                Matcher matcher;
                while ((matcher = pattern.matcher(unProcessed)).find()) {
                    int end = matcher.start() - 1;
+
                    if (end >= 0) {
                        before += unProcessed.substring(0, end);
                        res += before + " " + myPattern.action.exec(matcher) + " ";
@@ -772,6 +773,8 @@ public class StringToData {
        if(res.endsWith(unProcessed + " ") || unProcessed.endsWith("г.") || unProcessed.equals("да")) {
            return res;
        }
+      String [] fix = string.split(" ");
+       if(fix[fix.length - 1].startsWith("в")) unProcessed = fix[fix.length - 1];
        return res + unProcessed;
    }
 

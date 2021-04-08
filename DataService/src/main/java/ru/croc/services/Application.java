@@ -28,8 +28,6 @@ public class Application {
         System.out.println(StringToData.isPatterned("09 марта 2021"));
         System.out.println("05 марта 2021");
         System.out.println(StringToData.isPatterned("05 марта 2021"));
-        System.out.println("Период проведения акции с 01.03.2021 по 30.04.2021 включительно");
-        System.out.println(StringToData.isPatterned("Период проведения акции с 01.03.2021 по 30.04.2021 включительно"));
         System.out.println("[ставки действуют с 01.03.2021 г.]");
         System.out.println(StringToData.isPatterned("[ставки действуют с 01.03.2021 г.]"));
         //System.out.println("по 01.02.2015 по 01.02.2018");
@@ -40,6 +38,10 @@ public class Application {
         System.out.println(StringToData.isPatterned("Период проведения акции с 01.02.2015 по 01.02.2018"));
         System.out.println("с 01.02.2015 по 01.02.2018");
         System.out.println(StringToData.isPatterned("с 01.02.2015 по 01.02.2018"));
+        System.out.println("Период проведения акции с 01.02.2015 по 01.02.2018 включительно");
+        System.out.println(StringToData.isPatterned("Период проведения акции с 01.02.2015 по 01.02.2018 включительно"));
+        System.out.println("Период проведения акции с 01.02.2015");
+        System.out.println(StringToData.isPatterned("Период проведения акции с 01.02.2015"));
         //System.out.println("Доходность за период с 28.02.2018г. по 26.02.2021г.");
        // System.out.println(StringToData.isPatterned("Доходность за период с 28.02.2018г. по 26.02.2021г."));
     }
