@@ -2,10 +2,13 @@ package ru.croc.services;
 
 import ru.croc.services.dataservice.StringToData;
 
+import java.sql.SQLOutput;
+import java.util.Date;
+
 public class Application {
     public static void main(String [] args) {
         StringToData.generatePatternsQueue();
-        System.out.println("c 01.03.2021 г.");
+       /* System.out.println("c 01.03.2021 г.");
         System.out.println(StringToData.isPatterned("c 01.03.2021 г."));
         System.out.println("15 мая 1983 года");
         System.out.println(StringToData.isPatterned("15 мая 1983 года"));
@@ -42,7 +45,82 @@ public class Application {
         System.out.println(StringToData.isPatterned("Период проведения акции с 01.02.2015 по 01.02.2018 включительно"));
         System.out.println("Период проведения акции с 01.02.2015");
         System.out.println(StringToData.isPatterned("Период проведения акции с 01.02.2015"));
+        System.out.println("1015 мая 1983 года");
+        System.out.println(StringToData.isPatterned("1015 мая 1983 года"));
+        System.out.println("02/20/2021");
+        System.out.println(StringToData.isPatterned("02/20/2021"));
         //System.out.println("Доходность за период с 28.02.2018г. по 26.02.2021г.");
-       // System.out.println(StringToData.isPatterned("Доходность за период с 28.02.2018г. по 26.02.2021г."));
+       // System.out.println(StringToData.isPatterned("Доходность за период с 28.02.2018г. по 26.02.2021г."));*/
+
+        System.out.println("15 мая 1983 года");
+        System.out.println( StringToData.isPatterned("15 мая 1983 года"));
+        System.out.println("1012 мая 1999 года");
+        System.out.println( StringToData.isPatterned("1012 мая 1999 года"));
+        System.out.println("03-2018-13");
+        System.out.println( StringToData.isPatterned("03-2018-13"));
+        System.out.println("15-11-1983");
+        System.out.println( StringToData.isPatterned("15-11-1983"));
+        System.out.println("15/11/1983");
+        System.out.println( StringToData.isPatterned("15/11/1983"));
+        System.out.println("11/15/1983");
+        System.out.println(" "+ StringToData.isPatterned("11/15/1983"));
+        System.out.println("15 11 83 года - не обрабатывается. Специально исключила из обработки");
+        System.out.println( StringToData.isPatterned("15 11 83 года"));
+        System.out.println("31 декабря 2021 г");
+        System.out.println( StringToData.isPatterned("31 декабря 2021 г"));
+        System.out.println("31 декабря 2021 г.");
+        System.out.println( StringToData.isPatterned("31 декабря 2021 г."));
+        System.out.println("32 декабря 2020 года. - не должно обрабатываться");
+        System.out.println( StringToData.isPatterned("32 декабря 2020 года."));
+        System.out.println("Генеральная лицензия Банка России № 3349 от 12.08.2015 г.");
+        System.out.println( StringToData.isPatterned("Генеральная лицензия Банка России № 3349 от 12.08.2015 г."));
+        System.out.println("Генеральная лицензия Банка России № 3349 от 12 августа 2015");
+        System.out.println( StringToData.isPatterned("Генеральная лицензия Банка России № 3349 от 12 августа 2015"));
+        System.out.println("09 марта 2021");
+        System.out.println( StringToData.isPatterned("09 марта 2021"));
+        System.out.println("05 марта 2021");
+        System.out.println( StringToData.isPatterned("05 марта 2021"));
+        System.out.println("Период проведения акции с 01.03.2021 по 30.04.2021 включительно");
+        System.out.println( StringToData.isPatterned("Период проведения акции с 01.03.2021 по 30.04.2021 включительно"));
+        System.out.println("[ставки действуют с 01.03.2021 г.]");
+        System.out.println( StringToData.isPatterned("[ставки действуют с 01.03.2021 г.]"));
+        System.out.println("Доходность за период с 28.02.2018г. по 26.02.2021г.");
+        System.out.println( StringToData.isPatterned("Доходность за период с 28.02.2018г. по 26.02.2021г."));
+        System.out.println("В срок к 29.06.2018 установление ограничений. Предлог 'k' еще не обрабатывется -> падежи мб неправильными");
+        System.out.println( StringToData.isPatterned("В срок к 29.06.2018 установление ограничений"));
+        System.out.println("до 15.06.2018 выпуск карт");
+        System.out.println( StringToData.isPatterned("до 15.06.2018 выпуск карт"));
+        System.out.println("до 01.07.2020г. направить");
+        System.out.println(" "+ StringToData.isPatterned("до 01.07.2020г. направить"));
+        System.out.println("данного ТП истекает 01.07.2020. Согласно условиям ТП, карты ПС МИР будут перевыпущены автоматически.");
+        System.out.println( StringToData.isPatterned("данного ТП истекает 01.07.2020. Согласно условиям ТП, карты ПС МИР будут перевыпущены автоматически."));
+        System.out.println("Подробнее в  Активностях (19.06.2018).");
+        System.out.println( StringToData.isPatterned("Подробнее в  Активностях (19.06.2018)."));
+        System.out.println("закона №161-ФЗ от 27.06.2011.");
+        System.out.println( StringToData.isPatterned("закона №161-ФЗ от 27.06.2011."));
+        System.out.println("действует с 18.02.2021 г. до 01.05.2021 г.");
+        System.out.println( StringToData.isPatterned("действует с 18.02.2021 г. до 01.05.2021 г."));
+        System.out.println("Все кредиты, кроме ипотеки  До 11.11.2019  Нарочно, почта ");
+        System.out.println( StringToData.isPatterned("Все кредиты, кроме ипотеки  До 11.11.2019  Нарочно, почта "));
+        System.out.println("Все кредиты, кроме ипотеки После  12.11.2019  Нарочно");
+        System.out.println( StringToData.isPatterned("Все кредиты, кроме ипотеки После  12.11.2019  Нарочно"));
+        System.out.println("Если ипотечный договор оформлен ДО 12.03.2013 года,  ДП можно произвести в любой день");
+        System.out.println( StringToData.isPatterned("Если ипотечный договор оформлен ДО 12.03.2013 года,  ДП можно произвести в любой день"));
+        System.out.println("«Подарите праздник близким»  - действует с 18.02.2021 г. до 01.05.2021 г. ");
+        System.out.println(" "+ StringToData.isPatterned("«Подарите праздник близким»  - действует с 18.02.2021 г. до 01.05.2021 г. "));
+        System.out.println("в 2021 году – возраста 56 лет");
+        System.out.println( StringToData.isPatterned("в 2021 году – возраста 56 лет"));
+        System.out.println("Срок проведения акции С 00:00 (по московскому времени) 1 марта 2021 года по 23:59");
+        System.out.println(" "+ StringToData.isPatterned("Срок проведения акции С 00:00 (по московскому времени) 1 марта 2021 года по 23:59"));
+        System.out.println("Основание \u200BПосле 07.08.17:  Заявление +  Условия  - пока год из двух цифр не учтен");
+        System.out.println( StringToData.isPatterned("Основание \u200BПосле 07.08.17:  Заявление +  Условия "));
+        System.out.println("На 29.03.2019 г. (рабочий день)");
+        System.out.println( StringToData.isPatterned("На 29.03.2019 г. (рабочий день)"));
+        System.out.println("с 11.05 – 15.05 на 40 тыс. руб.");
+        System.out.println( StringToData.isPatterned("с 11.05 – 15.05 на 40 тыс. руб."));
+        System.out.println("В срок до 01.07.2020г. направить SMS-сообщение Клиентам");
+        System.out.println( StringToData.isPatterned("В срок до 01.07.2020г. направить SMS-сообщение Клиентам"));
+
+
     }
 }

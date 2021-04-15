@@ -5,19 +5,28 @@ import ru.croc.services.numberService.WorkWithNumbers;
 public class Services {
     public static String resolveZeroes(String number) {
         String res = "";
+        if(number.startsWith("-")) {
+            res += "минус ";
+            number = String.valueOf(-Long.parseLong(number));
+        }
         boolean flag = false;
+        int count = 0;
         if (number.startsWith("0")) {
             flag = true;
             for(int i = 0; i < number.length() - 1; i++) {
                 if (number.charAt(i) == '0') {
                     res += "ноль ";
+                    count++;
                 }
+                else break;
             }
         }
         if(flag) {
-            return res + numberToSymbol(Long.parseLong(number) / 10, Long.parseLong(number) / 10);
+            System.out.println(count);
+            long chislo = (long) (Long.parseLong(number) / Math.pow(10, count - 1));
+            return res + numberToSymbol(chislo, chislo);
         }
-        else return numberToSymbol(Long.parseLong(number), Long.parseLong(number));
+        else return res + numberToSymbol(Long.parseLong(number), Long.parseLong(number));
     }
     public static String numberToSymbol(long number, long number_copy) {
        String res = "";
