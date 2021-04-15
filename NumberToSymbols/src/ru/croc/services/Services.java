@@ -12,18 +12,23 @@ public class Services {
         boolean flag = false;
         int count = 0;
         if (number.startsWith("0")) {
-            flag = true;
             for(int i = 0; i < number.length() - 1; i++) {
                 if (number.charAt(i) == '0') {
                     res += "ноль ";
                     count++;
                 }
-                else break;
+                else {
+                    flag = true;
+                    break;
+                }
             }
         }
-        if(flag) {
-            System.out.println(count);
-            long chislo = (long) (Long.parseLong(number) / Math.pow(10, count - 1));
+        if(count > 0) {
+            long chislo;
+            if(count > 1) {
+                chislo = (long) (Long.parseLong(number) % Math.pow(10, count - 1));
+            }
+            else chislo = (long) (Long.parseLong(number) / Math.pow(10, count - 1));
             return res + numberToSymbol(chislo, chislo);
         }
         else return res + numberToSymbol(Long.parseLong(number), Long.parseLong(number));
